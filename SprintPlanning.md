@@ -18,22 +18,34 @@ For this project I will be using the Planning Poker technique to Task Estimation
 
 # Backlog 
 ## Tasks 
-- Create new survey 
-- Add question to survey  
-- Get a list of all surveys 
-- Get surveys by name 
-- Create survey response
-- Add new survey response 
-- Get all survey responses 
+- Create new survey - **2**
+- Add question to survey - **3** 
+- Get a list of all surveys - **3** 
+- Get surveys by name - **5**
+- Create survey response - **2**
+- Add new survey response - **2**
+- Get all survey responses - **5**
     
 **Survey Calculations**
- -  Average
- -  Standard deviation
- -  Minimum
- -  Maximum
+ -  Average - **5**
+ -  Standard deviation - **8**
+ -  Minimum - **3** 
+ -  Maximum - **3** 
 
  **Question Calculations**
--  Average
- -  Standard deviation
- -  Minimum
- -  Maximum
+-  Average - **5**
+ -  Standard deviation - **8**
+ -  Minimum - **3**  
+ -  Maximum - **3** 
+
+ ### Reasoning 
+ I will be comparing two tasks in order to show how I came to these conclusion on story points. The two tasks I will compare are: 
+ - Create a new survey - which is sized a 2
+- Get the survey average - which is sized a 5
+
+
+When comparing the two its important to look at a few factors, the level of computational thinking, the complexity and the steps it will take to complete.
+In the case of the task to create a survey there is very little complexity or problems to be solved, its just basic object creation.
+Whereas when this is compared to getting the average, you must get all of the values from the collection they are stored in, get the sum of these values and get the number of values in the collection and divide the two numbers. 
+
+As you can see there is a much higher level of complexity in the second task, which is why it has been sized higher
