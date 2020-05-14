@@ -15,3 +15,25 @@ For this project I will be using the Planning Poker technique to Task Estimation
 - 13 is the highest value that can be given to a task on this scale. This would be a task which requires a very substantial amout of effort and solving to implemnt. If it is decided that a task is valued at 13 the team should work to try abd break the task down in to smaller steps.
 
 **It is important not to size any task until it is broken down into its smallest possible increment.**
+
+# Backlog 
+## Tasks 
+- Create new survey 
+- Add question to survey  
+- Get a list of all surveys 
+- Get surveys by name 
+- Create survey response
+- Add new survey response 
+- Get all survey responses 
+    
+**Survey Calculations**
+ -  Average
+ -  Standard deviation
+ -  Minimum
+ -  Maximum
+
+ **Question Calculations**
+-  Average
+ -  Standard deviation
+ -  Minimum
+ -  Maximum
