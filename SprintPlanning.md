@@ -32,7 +32,7 @@ For this project I will be using the Planning Poker technique to Task Estimation
  -  Minimum - **3** 
  -  Maximum - **3** 
 
- **Question Calculations**
+ **Question Calculations** 
 -  Average - **5**
  -  Standard deviation - **8**
  -  Minimum - **3**  
