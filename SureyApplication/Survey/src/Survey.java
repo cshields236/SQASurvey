@@ -4,13 +4,19 @@ public class Survey {
    
     private String name;
     private ArrayList <Question>  questions =new ArrayList <Question>(); 
-
+    //Empty constructor
     public Survey() {
         
     }
+    // Constructor with name and questions 
     public Survey(String name, ArrayList<Question> questions) {
         this.name = name;
         this.questions = questions;
+    }
+    //Constructor that takes just name 
+    public Survey(String name) {
+        this.name = name;
+        
     }
 
 

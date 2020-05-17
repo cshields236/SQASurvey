@@ -42,6 +42,32 @@ public class Tester {
         // call on method in controller class to add the question to the survey
         controller.addQuestion(s, one);
 		assertTrue("Question Should be added to survey", s.getQuestions().get(0).getQuestion().equals("Test Added Question"));
-	}
+    }
+    
+
+    @Test
+    public void TestRetriveSpecificSurvey(){
+        //Create a series of surveys
+        Survey s1 = new Survey("Survey One");
+        Survey s2 = new Survey("Survey Two");
+        Survey s3 = new Survey("Survey Three");
+        Survey s4 = new Survey("Survey Four");
+
+
+        // add all these surveys to a collcection
+        ArrayList <Survey> surveys = new ArrayList <Survey>();
+
+        surveys.add(s1);
+        surveys.add(s2);
+        surveys.add(s3);
+        surveys.add(s4);
+
+        // search for the specific survey
+        Survey specificS = controller.retriveSpecificSurvey(surveys, "Survey One");
+        
+        assertTrue("Should return survey one", specificS.getName().equals("Survey One"));
+
+
+    }
 
 }
