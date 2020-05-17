@@ -2,26 +2,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Survey {
-   
-    private String name;
-    private ArrayList <Question>  questions =new ArrayList <Question>(); 
-    private ArrayList <SurveyResponse> surveyResponses = new ArrayList();
 
-    //Empty constructor
+    private String name;
+    private ArrayList<Question> questions = new ArrayList<Question>();
+    private ArrayList<SurveyResponse> surveyResponses = new ArrayList();
+
+    // Empty constructor
     public Survey() {
-        
+
     }
-    // Constructor with name and questions 
+
+    // Constructor with name and questions
     public Survey(String name, ArrayList<Question> questions) {
         this.name = name;
         this.questions = questions;
     }
-    //Constructor that takes just name 
+
+    // Constructor that takes just name
     public Survey(String name) {
         this.name = name;
-        
-    }
 
+    }
 
     public String getName() {
         return this.name;
@@ -39,13 +40,10 @@ public class Survey {
         this.questions = questions;
     }
 
+    public void addQuestion(Question question) {
 
-    public void addQuestion(Question question){
-
-            this.questions.add(question);
+        this.questions.add(question);
     }
-
-
 
     public ArrayList<SurveyResponse> getSurveyResponses() {
         return this.surveyResponses;
@@ -55,7 +53,19 @@ public class Survey {
         this.surveyResponses = surveyResponses;
     }
 
+    public ArrayList<SurveyResponse> addSurveyResponse(SurveyResponse surveyResponse) {
 
+        if (this.surveyResponses == null) {
+            ArrayList<SurveyResponse> response = new ArrayList();
+            response.add(surveyResponse);
 
+            this.surveyResponses = response;
+
+        } else {
+            this.surveyResponses.add(surveyResponse);
+        }
+        return this.surveyResponses;
+
+    }
 
 }
