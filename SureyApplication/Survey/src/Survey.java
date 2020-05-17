@@ -1,9 +1,12 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Survey {
    
     private String name;
     private ArrayList <Question>  questions =new ArrayList <Question>(); 
+    private ArrayList <SurveyResponse> surveyResponses = new ArrayList();
+
     //Empty constructor
     public Survey() {
         
@@ -18,7 +21,6 @@ public class Survey {
         this.name = name;
         
     }
-
 
 
     public String getName() {
@@ -42,5 +44,18 @@ public class Survey {
 
             this.questions.add(question);
     }
+
+
+
+    public ArrayList<SurveyResponse> getSurveyResponses() {
+        return this.surveyResponses;
+    }
+
+    public void setSurveyResponses(ArrayList<SurveyResponse> surveyResponses) {
+        this.surveyResponses = surveyResponses;
+    }
+
+
+
 
 }
