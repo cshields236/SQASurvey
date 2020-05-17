@@ -62,10 +62,37 @@ public class Tester {
         surveys.add(s3);
         surveys.add(s4);
 
-        // search for the specific survey
+        // search for the specific survey 
         Survey specificS = controller.retriveSpecificSurvey(surveys, "Survey One");
         
         assertTrue("Should return survey one", specificS.getName().equals("Survey One"));
+
+
+    }
+
+    
+    @Test
+    public void TestRetriveAll(){
+        //Create a series of surveys
+        Survey s1 = new Survey("Survey One");
+        Survey s2 = new Survey("Survey Two");
+        Survey s3 = new Survey("Survey Three");
+        Survey s4 = new Survey("Survey Four");
+
+
+        // add all these surveys to a collection
+        ArrayList <Survey> surveys = new ArrayList <Survey>();
+      
+        surveys.add(s1);
+        surveys.add(s2);
+        surveys.add(s3);
+        surveys.add(s4);
+
+        // retrieve all the surveys created 
+        ArrayList <Survey> returnedSurveys = new ArrayList <Survey>();
+        returnedSurveys = controller.retriveAllSurveys(surveys);
+        
+        assertTrue("Should return survey one", returnedSurveys.size() == 4);
 
 
     }

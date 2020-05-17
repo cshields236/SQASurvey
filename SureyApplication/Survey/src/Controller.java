@@ -19,7 +19,7 @@ public class Controller {
         s.addQuestion(q);
     }
 
-    // Returning specific survey surveys
+    // Returning specific survey
     public Survey retriveSpecificSurvey(ArrayList<Survey> surveys , String name){
         
         Survey returnSurvey = new Survey();
@@ -33,5 +33,11 @@ public class Controller {
 
     } return returnSurvey;
 
+    }
+
+
+      // Returning all surveys
+      public ArrayList<Survey> retriveAllSurveys(ArrayList<Survey> surveys ){
+         return surveys;
     }
 }
