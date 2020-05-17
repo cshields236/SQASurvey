@@ -28,8 +28,20 @@ public class Tester {
         Survey s = controller.createSurvey(surveyQs);
 
 
-        assertTrue("Should create a survey object", s.getQuestions().get(0).getQuestion().equals("Question One"));
+        assertTrue("Should create a survey object with question added", s.getQuestions().get(0).getQuestion().equals("Question One"));
     }
 
+
+    @Test 
+	public void TestAddQuestion()
+	{
+		// Create Empty survey
+        Survey s = controller.createEmptySurvey();
+        // Create new question object
+        Question one = new Question("Test Added Question");
+        // call on method in controller class to add the question to the survey
+        controller.addQuestion(s, one);
+		assertTrue("Question Should be added to survey", s.getQuestions().get(0).getQuestion().equals("Test Added Question"));
+	}
 
 }

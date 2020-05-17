@@ -31,4 +31,10 @@ public class Survey {
         this.questions = questions;
     }
 
+
+    public void addQuestion(Question question){
+
+            this.questions.add(question);
+    }
+
 }

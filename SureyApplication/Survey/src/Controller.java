@@ -13,5 +13,10 @@ public class Controller {
 		ArrayList<Question> questions = surveyQuestions;
 		Survey s = new Survey("Questions" ,questions);
 		return s;
-	}
+    }
+    // Take in a survey and question and add the question to the survey
+    public void addQuestion(Survey s, Question q){
+        s.addQuestion(q);
+    }
+
 }
