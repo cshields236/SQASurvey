@@ -49,3 +49,11 @@ In the case of the task to create a survey there is very little complexity or pr
 Whereas when this is compared to getting the average, you must get all of the values from the collection they are stored in, get the sum of these values and get the number of values in the collection and divide the two numbers. 
 
 As you can see there is a much higher level of complexity in the second task, which is why it has been sized higher
+
+
+## Velocity
+Velocity is an extremely simple, powerful method for accurately measuring the rate at which your teams consistently deliver business value.
+
+ To calculate velocity of we will, simply add up the estimates of the features,  delivered in an iteration. It may not give an accurate reading after the first Sprint, but as time progresses and more Sprints are completed you can work out the teams average velocity.
+
+  [Home](README.md)
