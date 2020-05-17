@@ -5,6 +5,14 @@ public class Survey {
     private String name;
     private ArrayList <Question>  questions =new ArrayList <Question>(); 
 
+    public Survey() {
+        
+    }
+    public Survey(String name, ArrayList<Question> questions) {
+        this.name = name;
+        this.questions = questions;
+    }
+
 
 
     public String getName() {

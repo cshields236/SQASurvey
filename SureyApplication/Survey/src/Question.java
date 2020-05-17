@@ -6,11 +6,10 @@ public class Question {
     public Question() {
     }
 
-    public Question question(String question, int answer) {
-        this.question = question;
-        this.answer = answer;
-        return this;
-    }
+    public Question(String question) {
+		this.question = question;
+
+	}
 
 
     //Question getter and setter 
@@ -28,7 +27,16 @@ public class Question {
     }
 
     public void setAnswer(int answer) {
-        this.answer = answer;
+
+        // Check to see that number is valid, if not thorw an exception
+        if (answer > 0 &&  answer <= 5){
+
+            this.answer = answer;
+        }
+        else {
+            throw new IllegalArgumentException("Answer for question must be between 1 & 5");
+        }
+       
     }
  
 
