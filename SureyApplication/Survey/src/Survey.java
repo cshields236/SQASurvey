@@ -23,7 +23,7 @@ public class Survey {
         this.name = name;
 
     }
-
+  
     public String getName() {
         return this.name;
     }
@@ -45,18 +45,10 @@ public class Survey {
         this.questions.add(question);
     }
 
-    public ArrayList<SurveyResponse> getSurveyResponses() {
-        return this.surveyResponses;
-    }
-
-    public void setSurveyResponses(ArrayList<SurveyResponse> surveyResponses) {
-        this.surveyResponses = surveyResponses;
-    }
-
     public ArrayList<SurveyResponse> addSurveyResponse(SurveyResponse surveyResponse) {
+        ArrayList<SurveyResponse> response = new ArrayList();
 
         if (this.surveyResponses == null) {
-            ArrayList<SurveyResponse> response = new ArrayList();
             response.add(surveyResponse);
 
             this.surveyResponses = response;
@@ -68,4 +60,11 @@ public class Survey {
 
     }
 
+    public ArrayList<SurveyResponse> getSurveyResponses() {
+        return this.surveyResponses;
+    }
+
+    public void setSurveyResponses(ArrayList<SurveyResponse> surveyResponses) {
+        this.surveyResponses = surveyResponses;
+    }
 }

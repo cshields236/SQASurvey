@@ -91,29 +91,91 @@ public class Tester {
     }
 
     @Test
-    public void TestAddSurveyResponse() {
+    public void TestCreateSurveyResponse() {
+
+        
+        // Create answers for survey responses
+        int r1 = 3;
+        int r2 = 2;
+        int r3 = 4;
+        // call on method to create
+        SurveyResponse response = controller.createNewSurveyResponse(r1, r2, r3);
+        
+        assertTrue("Should return the survey response created" , response.getAnswers().size() == 3);
+
+    }
+
+    @Test
+    public void TestAddSurveyResponseToSurvey(){
+
+        ArrayList<Survey> surveys = new ArrayList<Survey>();
 
         // Add three questions to the survey
         Question q1 = new Question("Test Added Question");
         Question q2 = new Question("Test Added Question");
         Question q3 = new Question("Test Added Question");
-        // Crate Questions list
+        // Create Questions list
         ArrayList<Question> surveyQs = new ArrayList<Question>();
 
         // Add Questions to list
         surveyQs.add(q1);
         surveyQs.add(q2);
         surveyQs.add(q3);
-        // Create survey with questions
-        Survey s = controller.createSurvey("Example Survey ", surveyQs);
-        // Create answers for survey responses
+        
+        //Create new survey with title and questions
+        Survey s = controller.createSurvey("Test",surveyQs);
+
+        surveys.add(s);
+
         int r1 = 3;
         int r2 = 2;
         int r3 = 4;
         // call on method to create
-        SurveyResponse response = controller.createNewSurveyResponse(s, r1, r2, r3);
+        SurveyResponse response = controller.createNewSurveyResponse(r1, r2, r3);
+        s.addSurveyResponse(response);
+        // Get the specific survey
+       Survey specificS = controller.retriveSpecificSurvey(surveys, "Test");
+
+        assertTrue("Survey Responses should be added to the survey", specificS.getSurveyResponses().get(0).getAnswers().size() == 3);
+
+    }
+
+    @Test 
+    public void TestGetAllResponsesForSurvey(){
+        ArrayList <Survey> surveys = new ArrayList<Survey>();
+        ArrayList <SurveyResponse> surveyResponses = new ArrayList<SurveyResponse>();
+
+        // Crete questions 
+        Question q1 = new Question("Test Added Question");
+        Question q2 = new Question("Test Added Question");
+        Question q3 = new Question("Test Added Question");
+        ArrayList<Question> surveyQs = new ArrayList<Question>();
+        surveyQs.add(q1);
+        surveyQs.add(q2);
+        surveyQs.add(q3);
+
+
+        // Create survey
+        Survey s = controller.createSurvey("Example Survey", surveyQs);
         
-        assertTrue("Should return the survey response created" , response.getAnswers().size() == 3);
+
+        // Create survey responses 
+        int r1 = 3;
+        int r2 = 2;
+        int r3 = 4;
+
+        // create the survey response 
+        SurveyResponse response = controller.createNewSurveyResponse( r1, r2, r3);
+        
+        // Add response to the survey 
+        controller.addSurveyResponse(s, response);
+        // Add survey to list 
+        surveys.add(s);  
+        // search for the survey with the title 
+         surveyResponses =  controller.getAllSurveyResponses (surveys, "Example Survey");
+        // get the responses for that survey
+
+        assertTrue("Should return the survey responses for this survey", surveyResponses.size() ==1);
 
     }
 
