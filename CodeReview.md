@@ -29,3 +29,8 @@ _______________
 - **Respond** to all comments left on a code review.
 - **Explain** your rationale behind your commit.
 - Don't be afraid to **back your work** and if possible organise a meeting with the reviewer to go through your reasoning. 
+
+
+## Links
+- [Example Code Review](https://github.com/cshields236/SQASurvey/pull/3)
+- [Home](README.md)
