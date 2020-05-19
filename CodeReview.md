@@ -15,4 +15,17 @@ Ensure that another developer would be able to pick up  the code and have a full
 - **Style** - Ensure that the code follows the style guidelines set out. 
 - **Documentation**:  Ensure that the developer has updated or added documentation in regard to the feature, if required. 
 
+## Code Review Best Practices 
 
+### Reviewer
+_______________
+- Do not be afraid to give **honest feedback**.
+- **Be clear** with your feedback and if possible discuss issues found with the developer in person.
+- Do not be afraid to **ask questions** on why they choose a certain way of implmenting. As well as being a tool for software quality assurance, code reviewing should be used as a learning tool for both the reviewer and the author.
+- Employ the **correct tone**, try to be constructive instead of critical. 
+- **Limit nit-picking**, try to stay away from focusing on low priority issues in your review and focus on the main structure of the commits. 
+### Author 
+_______________
+- **Respond** to all comments left on a code review.
+- **Explain** your rationale behind your commit.
+- Don't be afraid to **back your work** and if possible organise a meeting with the reviewer to go through your reasoning. 
