@@ -179,4 +179,38 @@ public class Tester {
 
     }
 
+    @Test
+    public void TestSurveyAverage(){
+        // Create Questions for survey 
+
+        Question q1 = new Question("Test Added Question");
+        Question q2 = new Question("Test Added Question");
+        Question q3 = new Question("Test Added Question");
+        ArrayList<Question> surveyQs = new ArrayList<Question>();
+        surveyQs.add(q1);
+        surveyQs.add(q2);
+        surveyQs.add(q3);
+
+
+        // Create survey with questions
+        Survey s = controller.createSurvey("Example Survey", surveyQs);
+
+        int r1 = 3;
+        int r2 = 2;
+        int r3 = 4;
+
+        // create the survey response 
+        SurveyResponse response = controller.createNewSurveyResponse( r1, r2, r3);
+        
+        // Add response to the survey 
+        controller.addSurveyResponse(s, response);
+        
+
+        // retrieve survey average 
+       double average = controller.getSurveyAverage(s);
+
+
+        assertTrue("Average of responses should be returned" , average == 3);
+    }
+
 }

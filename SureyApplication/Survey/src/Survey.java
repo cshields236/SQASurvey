@@ -23,7 +23,7 @@ public class Survey {
         this.name = name;
 
     }
-  
+
     public String getName() {
         return this.name;
     }
@@ -66,5 +66,26 @@ public class Survey {
 
     public void setSurveyResponses(ArrayList<SurveyResponse> surveyResponses) {
         this.surveyResponses = surveyResponses;
+    }
+
+    // Method to get the average response for a survey
+    public double getAverageResponse() {
+        // Initialise values for calculation of average 
+        int total = 0;
+        int totalResponses = 0;
+        double average = 0;
+        // Get all responses to the survey
+        for (SurveyResponse sResponse : this.surveyResponses) {
+            // Get a single response to the survey
+            for (int singleResponse : sResponse.getAnswers().values()) {
+                // Update the value with the single response
+                totalResponses += singleResponse;
+            }
+            // Get the total number of questions
+            total = sResponse.getAnswers().size();
+        }
+        // calculate average 
+        average = (double) totalResponses / (double) total;
+        return average;
     }
 }

@@ -87,4 +87,17 @@ public class Controller {
         return responses;
     }
 
+    public double getSurveyAverage(Survey survey){
+        double average = 0;
+        if (survey.getSurveyResponses() !=null){
+            average = survey.getAverageResponse();
+        }
+        else{
+            average = 0;
+        }
+
+        return average;
+        
+    }
+
 }
