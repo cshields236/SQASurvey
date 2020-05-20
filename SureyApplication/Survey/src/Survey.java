@@ -193,22 +193,41 @@ public class Survey {
         return Math.sqrt(stdDev / total);
     }
 
-
     public Integer getQuestionMaximumAnswerSpecific(int selectedQuestion) {
         // Initially sets the maximum value to the first answer
-         // Initialise values for calculation of average
-         int maximum = 0;
-         
-         // Get all responses to the survey
-         for (SurveyResponse sResponse : this.surveyResponses) {
-             // get the answer for the specific question
-             if (maximum <  sResponse.getAnswers().get(selectedQuestion)){
+        // Initialise values for calculation of average
+        int maximum = 0;
+
+        // Get all responses to the survey
+        for (SurveyResponse sResponse : this.surveyResponses) {
+            // get the answer for the specific question
+            if (maximum < sResponse.getAnswers().get(selectedQuestion)) {
                 maximum = sResponse.getAnswers().get(selectedQuestion);
-             }
- 
-         }
-         // Return maximum answer
-         return maximum;
+            }
+
+        }
+        // Return maximum answer
+        return maximum;
+
+    }
+
+    public Integer getQuestionMinimumAnswerSpecific(int selectedQuestion) {
+        // Initially sets the minimum value to the first answer
+        // Initialise values for calculation of average
+        int minimum = this.surveyResponses.get(0).getAnswers().get(selectedQuestion);
+
+        // Get all responses to the survey
+        for (SurveyResponse sResponse : this.surveyResponses) {
+            // get the answer for the specific question
+            // Check if the current value is less than the current minimum value
+            if (minimum > sResponse.getAnswers().get(selectedQuestion)) {
+                // if it is set the current value to the new minimum value 
+                minimum = sResponse.getAnswers().get(selectedQuestion);
+            }
+
+        }
+        // Return minimum answer
+        return minimum;
 
     }
 }

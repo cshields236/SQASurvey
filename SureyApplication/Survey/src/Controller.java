@@ -160,13 +160,26 @@ public class Controller {
 
      // Get maximum answer for specific question
      public static Integer getQuestionMaximum(Survey survey, int question) {
-        int stdDev = 0;
+        int maximum = 0;
         if (survey.getSurveyResponses() != null) {
-            stdDev = survey.getQuestionMaximumAnswerSpecific(question);
+            maximum = survey.getQuestionMaximumAnswerSpecific(question);
         } else {
-            stdDev = 0;
+            maximum = 0;
         }
-        return stdDev;
+        return maximum;
+
+    }
+
+
+      // Get maximum answer for specific question
+      public static Integer getQuestionMinimum(Survey survey, int question) {
+        int minimum = 0;
+        if (survey.getSurveyResponses() != null) {
+            minimum = survey.getQuestionMinimumAnswerSpecific(question);
+        } else {
+            minimum = 0;
+        }
+        return minimum;
 
     }
 
