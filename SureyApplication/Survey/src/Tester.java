@@ -350,11 +350,11 @@ public class Tester {
         controller.addSurveyResponse(s, response5);
         controller.addSurveyResponse(s, response6);
 
-        // retrieve question average
+        // retrieve question standard deviation
         double stdDev = controller.getQuestionStdDevSurvey(s, 2);
 
-        // Answer for question 2 should be 3
-        // as the three responses recorded 5,3,1 add up to 9 - 9/ 3 = 3
+        // Answer for question 2 should be 1.2909944487358056
+        // as the responses recorded are 5,3,1,2,3,4 
         assertEquals(stdDev, 1.2909944487358056);
     }
 }
