@@ -19,3 +19,14 @@ Here we can see that the coverage of code covered by tests in my application is 
 We Should always be looking for a code coverage percentage of over 70%. This ensures we are testing the main computational features of the project, although other projects may vary as to how high of a coverage percentage is needed. A developer should know when to stop testing when the tests start becoming contrived to design. 
 
 There is no need to write Unit Tests for low level tasks with no or minimal computation. An example of these types of methods are getter and setter methods 
+
+## Classifications
+The EclEmma extenstion will highlight your code in differnt colours to illustrate the level of coverage. This is a very helpful tool as it allows you to easily identify untested code.
+![Image of method with Full Test Coverage ](Images/Green.png)
+- Here we see a method that is fully highlighted **green**, meaning that it is fully covered by testing. 
+
+
+![Image of method with Full Test Coverage ](Images/diff.png)
+Here we see the full array of coverage.
+- Lines which are highlighted in **yellow** are partially covered by tests but could have other conditions or scenarios which have not been tested.
+- Lines which are highlighted in **red** are not covered at all by testing.
