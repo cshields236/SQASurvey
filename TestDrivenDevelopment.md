@@ -8,7 +8,7 @@ The Key Principle of Test Driven Development is, Red, Green, Refactor.
 - **Refactor**: Refactor code in order to make it more effecient, while still passing the test
 
 
-![Image of TDD Process ](Images/tdd.PNG)
+![Image of TDD Process ](Images/tdd.png)
 
 ## Example 
 Here I will show an example of how I implmented TDD in the creation of features throughout this project, in this case the get maximum answer feature with links to the commits.
