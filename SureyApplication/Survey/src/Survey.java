@@ -68,6 +68,10 @@ public class Survey {
         this.surveyResponses = surveyResponses;
     }
 
+    /*
+     * Survey calculations
+     */
+
     // Method to get the average response for a survey
     public double getAverageResponse() {
         // Initialise values for calculation of average
@@ -148,6 +152,9 @@ public class Survey {
         return lowest;
     }
 
+    /*
+     * Specific Question calculations
+     */
     public double getQuestionAverage(int selectedQuestion) {
         // Initialise values for calculation of average
         int total = 0;
@@ -155,9 +162,9 @@ public class Survey {
         double average = 0;
         // Get all responses to the survey
         for (SurveyResponse sResponse : this.surveyResponses) {
-                totalResponses++;
-                // get the answer for the specific question
-                total += sResponse.getAnswers().get(selectedQuestion);
+            totalResponses++;
+            // get the answer for the specific question
+            total += sResponse.getAnswers().get(selectedQuestion);
 
         }
         // calculate average
@@ -165,8 +172,6 @@ public class Survey {
         return average;
 
     }
-
-
 
     public double getQuestionStdDeviation(int selectedQuestion) {
 
@@ -186,5 +191,24 @@ public class Survey {
             }
         }
         return Math.sqrt(stdDev / total);
+    }
+
+
+    public Integer getQuestionMaximumAnswerSpecific(int selectedQuestion) {
+        // Initially sets the maximum value to the first answer
+         // Initialise values for calculation of average
+         int maximum = 0;
+         
+         // Get all responses to the survey
+         for (SurveyResponse sResponse : this.surveyResponses) {
+             // get the answer for the specific question
+             if (maximum <  sResponse.getAnswers().get(selectedQuestion)){
+                maximum = sResponse.getAnswers().get(selectedQuestion);
+             }
+ 
+         }
+         // Return maximum answer
+         return maximum;
+
     }
 }

@@ -360,9 +360,41 @@ public class Tester {
 
     @Test
     public void TestQuestionMaximumAnswer() {
-        
-        int max = 0;
-        assertEquals(max, 4);
+         // Create Questions for survey
+
+         Question q1 = new Question("Test Added Question");
+         Question q2 = new Question("Test Added Question");
+         Question q3 = new Question("Test Added Question");
+         ArrayList<Question> surveyQs = new ArrayList<Question>();
+         surveyQs.add(q1);
+         surveyQs.add(q2);
+         surveyQs.add(q3);
+ 
+         // Create survey with questions
+         Survey s = controller.createSurvey("Example Survey", surveyQs);
+ 
+         // create the survey response
+         SurveyResponse response1 = controller.createNewSurveyResponse(4, 5, 2);
+         SurveyResponse response2 = controller.createNewSurveyResponse(3, 3, 4);
+         SurveyResponse response3 = controller.createNewSurveyResponse(3, 1, 4);
+         SurveyResponse response4 = controller.createNewSurveyResponse(3, 2, 4);
+         SurveyResponse response5 = controller.createNewSurveyResponse(3, 3, 4);
+         SurveyResponse response6 = controller.createNewSurveyResponse(3, 4, 4);
+ 
+         // Add response to the survey
+         controller.addSurveyResponse(s, response1);
+         controller.addSurveyResponse(s, response2);
+         controller.addSurveyResponse(s, response3);
+         controller.addSurveyResponse(s, response4);
+         controller.addSurveyResponse(s, response5);
+         controller.addSurveyResponse(s, response6);
+ 
+         // retrieve question standard deviation
+         double stdDev = controller.getQuestionMaximum(s, 2);
+ 
+         // Answer for question 2 should be 1.2909944487358056
+         // as the responses recorded are 5,3,1,2,3,4 
+         assertEquals(stdDev, 5);
     }
 
 }
