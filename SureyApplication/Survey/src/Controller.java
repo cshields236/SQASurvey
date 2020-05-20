@@ -121,4 +121,16 @@ public class Controller {
 
     }
 
+
+    public static Integer getLowestAnswer(Survey survey){
+        int lowest = 0;
+        if (survey.getSurveyResponses() != null) {
+            lowest = survey.getMinimumAnswer();
+        } else {
+            lowest = 0;
+        }
+        return lowest;
+
+    }
+
 }

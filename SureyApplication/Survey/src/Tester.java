@@ -264,7 +264,24 @@ public class Tester {
     @Test
     public void TestSurveyMinimumAnswer() {
         
-        assertEquals(0, 4);
+        Question q1 = new Question("Test Added Question");
+        Question q2 = new Question("Test Added Question");
+        Question q3 = new Question("Test Added Question");
+        ArrayList<Question> surveyQs = new ArrayList<Question>();
+        surveyQs.add(q1);
+        surveyQs.add(q2);
+        surveyQs.add(q3);
+
+        // Create survey with questions
+        Survey s = controller.createSurvey("Example Survey", surveyQs);
+
+        // create the survey response
+        SurveyResponse response = controller.createNewSurveyResponse(3, 2, 4);
+        //Add response to survey 
+        controller.addSurveyResponse(s, response);
+        // Get the minimum value for the survey
+        int min = controller.getLowestAnswer(s);
+        assertEquals(min, 2);
     }
 
 }
