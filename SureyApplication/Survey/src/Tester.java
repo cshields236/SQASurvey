@@ -261,4 +261,10 @@ public class Tester {
         assertEquals(max, 4);
     }
 
+    @Test
+    public void TestSurveyMinimumAnswer() {
+        
+        assertEquals(0, 4);
+    }
+
 }
