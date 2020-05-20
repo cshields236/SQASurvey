@@ -30,3 +30,6 @@ The EclEmma extenstion will highlight your code in differnt colours to illustrat
 Here we see the full array of coverage.
 - Lines which are highlighted in **yellow** are partially covered by tests but could have other conditions or scenarios which have not been tested.
 - Lines which are highlighted in **red** are not covered at all by testing.
+
+## Why Use a Test Coverage Metric?
+It is very important to use a test coverage metric in your applications to get a clear overview of the level of testing that has been implemented. Although it is not perfect and may not pick up on poor implementations of features. It still gives a good overview and highlights areas of code which may have been neglected during testing. 
