@@ -112,14 +112,16 @@ public class Survey {
 
 
     public Integer getMaximumAnswer(){
+        // Initially sets the maximum value to the first answer
         int highest = surveyResponses.get(0).getAnswers().get(1);
 
         for (SurveyResponse sResponse : this.surveyResponses) {
 
             // Get a single response to the survey
             for (int singleResponse : sResponse.getAnswers().values()) {
-                // update  total number of questions
+               // Checks to see if the current answer is larger than the largest
                 if (singleResponse > highest){
+                    // if it is, updates the largest value
                    highest = singleResponse ;
                 }
             }

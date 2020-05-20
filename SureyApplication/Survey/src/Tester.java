@@ -208,7 +208,7 @@ public class Tester {
         // retrieve survey average
         double average = controller.getSurveyAverage(s);
 
-        assertEquals( average, 3);
+        assertEquals(average, 3);
     }
 
     @Test
@@ -235,13 +235,12 @@ public class Tester {
         controller.addSurveyResponse(s, response2);
 
         // retrieve survey standard deviation
-        double std= controller.getStdDevSurvey(s);
-        assertEquals(  std , 0.816496580927726);
+        double std = controller.getStdDevSurvey(s);
+        assertEquals(std, 0.816496580927726);
     }
 
-
-    @Test 
-    public void TestSurveyMaximumAnswer(){
+    @Test
+    public void TestSurveyMaximumAnswer() {
         Question q1 = new Question("Test Added Question");
         Question q2 = new Question("Test Added Question");
         Question q3 = new Question("Test Added Question");
@@ -255,11 +254,11 @@ public class Tester {
 
         // create the survey response
         SurveyResponse response = controller.createNewSurveyResponse(3, 2, 4);
-
+        //Add response to survey 
         controller.addSurveyResponse(s, response);
-
+        // Get the maximum value for the survey
         int max = controller.getHighestAnswer(s);
-        assertEquals( max, 4);
+        assertEquals(max, 4);
     }
 
 }
