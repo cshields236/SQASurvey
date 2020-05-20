@@ -357,4 +357,12 @@ public class Tester {
         // as the responses recorded are 5,3,1,2,3,4 
         assertEquals(stdDev, 1.2909944487358056);
     }
+
+    @Test
+    public void TestQuestionMaximumAnswer() {
+        
+        int max = 0;
+        assertEquals(max, 4);
+    }
+
 }
