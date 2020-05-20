@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 
@@ -93,20 +94,19 @@ public class Tester {
     @Test
     public void TestCreateSurveyResponse() {
 
-        
         // Create answers for survey responses
         int r1 = 3;
         int r2 = 2;
         int r3 = 4;
         // call on method to create
         SurveyResponse response = controller.createNewSurveyResponse(r1, r2, r3);
-        
-        assertTrue("Should return the survey response created" , response.getAnswers().size() == 3);
+
+        assertTrue("Should return the survey response created", response.getAnswers().size() == 3);
 
     }
 
     @Test
-    public void TestAddSurveyResponseToSurvey(){
+    public void TestAddSurveyResponseToSurvey() {
 
         ArrayList<Survey> surveys = new ArrayList<Survey>();
 
@@ -121,9 +121,9 @@ public class Tester {
         surveyQs.add(q1);
         surveyQs.add(q2);
         surveyQs.add(q3);
-        
-        //Create new survey with title and questions
-        Survey s = controller.createSurvey("Test",surveyQs);
+
+        // Create new survey with title and questions
+        Survey s = controller.createSurvey("Test", surveyQs);
 
         surveys.add(s);
 
@@ -134,18 +134,19 @@ public class Tester {
         SurveyResponse response = controller.createNewSurveyResponse(r1, r2, r3);
         s.addSurveyResponse(response);
         // Get the specific survey
-       Survey specificS = controller.retriveSpecificSurvey(surveys, "Test");
+        Survey specificS = controller.retriveSpecificSurvey(surveys, "Test");
 
-        assertTrue("Survey Responses should be added to the survey", specificS.getSurveyResponses().get(0).getAnswers().size() == 3);
+        assertTrue("Survey Responses should be added to the survey",
+                specificS.getSurveyResponses().get(0).getAnswers().size() == 3);
 
     }
 
-    @Test 
-    public void TestGetAllResponsesForSurvey(){
-        ArrayList <Survey> surveys = new ArrayList<Survey>();
-        ArrayList <SurveyResponse> surveyResponses = new ArrayList<SurveyResponse>();
+    @Test
+    public void TestGetAllResponsesForSurvey() {
+        ArrayList<Survey> surveys = new ArrayList<Survey>();
+        ArrayList<SurveyResponse> surveyResponses = new ArrayList<SurveyResponse>();
 
-        // Crete questions 
+        // Crete questions
         Question q1 = new Question("Test Added Question");
         Question q2 = new Question("Test Added Question");
         Question q3 = new Question("Test Added Question");
@@ -154,29 +155,133 @@ public class Tester {
         surveyQs.add(q2);
         surveyQs.add(q3);
 
-
         // Create survey
         Survey s = controller.createSurvey("Example Survey", surveyQs);
-        
 
-        // Create survey responses 
+        // Create survey responses
         int r1 = 3;
         int r2 = 2;
         int r3 = 4;
 
-        // create the survey response 
-        SurveyResponse response = controller.createNewSurveyResponse( r1, r2, r3);
-        
-        // Add response to the survey 
+        // create the survey response
+        SurveyResponse response = controller.createNewSurveyResponse(r1, r2, r3);
+
+        // Add response to the survey
         controller.addSurveyResponse(s, response);
-        // Add survey to list 
-        surveys.add(s);  
-        // search for the survey with the title 
-         surveyResponses =  controller.getAllSurveyResponses (surveys, "Example Survey");
+        // Add survey to list
+        surveys.add(s);
+        // search for the survey with the title
+        surveyResponses = controller.getAllSurveyResponses(surveys, "Example Survey");
         // get the responses for that survey
 
-        assertTrue("Should return the survey responses for this survey", surveyResponses.size() ==1);
+        assertTrue("Should return the survey responses for this survey", surveyResponses.size() == 1);
 
+    }
+
+    @Test
+    public void TestSurveyAverage() {
+        // Create Questions for survey
+
+        Question q1 = new Question("Test Added Question");
+        Question q2 = new Question("Test Added Question");
+        Question q3 = new Question("Test Added Question");
+        ArrayList<Question> surveyQs = new ArrayList<Question>();
+        surveyQs.add(q1);
+        surveyQs.add(q2);
+        surveyQs.add(q3);
+
+        // Create survey with questions
+        Survey s = controller.createSurvey("Example Survey", surveyQs);
+
+        int r1 = 3;
+        int r2 = 2;
+        int r3 = 4;
+
+        // create the survey response
+        SurveyResponse response = controller.createNewSurveyResponse(4, 3, 2);
+        SurveyResponse response1 = controller.createNewSurveyResponse(3, 2, 4);
+
+        // Add response to the survey
+        controller.addSurveyResponse(s, response);
+        controller.addSurveyResponse(s, response1);
+
+        // retrieve survey average
+        double average = controller.getSurveyAverage(s);
+
+        assertEquals(average, 3);
+    }
+
+    @Test
+    public void TestSurveyStandardDeviation() {
+        // Create Questions for survey
+
+        Question q1 = new Question("Test Added Question");
+        Question q2 = new Question("Test Added Question");
+        Question q3 = new Question("Test Added Question");
+        ArrayList<Question> surveyQs = new ArrayList<Question>();
+        surveyQs.add(q1);
+        surveyQs.add(q2);
+        surveyQs.add(q3);
+
+        // Create survey with questions
+        Survey s = controller.createSurvey("Example Survey", surveyQs);
+
+        // create the survey response
+        SurveyResponse response = controller.createNewSurveyResponse(3, 2, 4);
+        SurveyResponse response2 = controller.createNewSurveyResponse(4, 3, 2);
+
+        // Add response to the survey
+        controller.addSurveyResponse(s, response);
+        controller.addSurveyResponse(s, response2);
+
+        // retrieve survey standard deviation
+        double std = controller.getStdDevSurvey(s);
+        assertEquals(std, 0.816496580927726);
+    }
+
+    @Test
+    public void TestSurveyMaximumAnswer() {
+        Question q1 = new Question("Test Added Question");
+        Question q2 = new Question("Test Added Question");
+        Question q3 = new Question("Test Added Question");
+        ArrayList<Question> surveyQs = new ArrayList<Question>();
+        surveyQs.add(q1);
+        surveyQs.add(q2);
+        surveyQs.add(q3);
+
+        // Create survey with questions
+        Survey s = controller.createSurvey("Example Survey", surveyQs);
+
+        // create the survey response
+        SurveyResponse response = controller.createNewSurveyResponse(3, 2, 4);
+        //Add response to survey 
+        controller.addSurveyResponse(s, response);
+        // Get the maximum value for the survey
+        int max = controller.getHighestAnswer(s);
+        assertEquals(max, 4);
+    }
+
+    @Test
+    public void TestSurveyMinimumAnswer() {
+        
+        Question q1 = new Question("Test Added Question");
+        Question q2 = new Question("Test Added Question");
+        Question q3 = new Question("Test Added Question");
+        ArrayList<Question> surveyQs = new ArrayList<Question>();
+        surveyQs.add(q1);
+        surveyQs.add(q2);
+        surveyQs.add(q3);
+
+        // Create survey with questions
+        Survey s = controller.createSurvey("Example Survey", surveyQs);
+
+        // create the survey response
+        SurveyResponse response = controller.createNewSurveyResponse(3, 2, 4);
+        //Add response to survey 
+        controller.addSurveyResponse(s, response);
+        // Get the minimum value for the survey
+        int min = controller.getLowestAnswer(s);
+        assertEquals(min, 2);
     }
 
 }
