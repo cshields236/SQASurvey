@@ -311,9 +311,11 @@ public class Tester {
         controller.addSurveyResponse(s, response2);
         controller.addSurveyResponse(s, response3);
 
-        // retrieve survey average
+        // retrieve question average
         double average = controller.getQuestionAverage(s, 2);
 
+        // Answer for question 2 should be 3
+        // as the three responses recorded 5,3,1 add up to 9 - 9/ 3 = 3
         assertEquals(average, 3);
     }
 

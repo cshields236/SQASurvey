@@ -148,20 +148,16 @@ public class Survey {
         return lowest;
     }
 
-    public double getQuestionAverage(int index) {
+    public double getQuestionAverage(int selectedQuestion) {
         // Initialise values for calculation of average
         int total = 0;
         int totalResponses = 0;
         double average = 0;
         // Get all responses to the survey
         for (SurveyResponse sResponse : this.surveyResponses) {
-            // Get a single response to the survey
-            // for (int singleResponse : sResponse.getAnswers().values()) {
                 totalResponses++;
-                total += sResponse.getAnswers().get(index);
-               
-
-        // }
+                // get the answer for the specific question
+                total += sResponse.getAnswers().get(selectedQuestion);
 
         }
         // calculate average
