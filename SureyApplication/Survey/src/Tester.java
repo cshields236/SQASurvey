@@ -284,4 +284,37 @@ public class Tester {
         assertEquals(min, 2);
     }
 
+
+
+    @Test
+    public void TestQuestionAverage() {
+        // Create Questions for survey
+
+        Question q1 = new Question("Test Added Question");
+        Question q2 = new Question("Test Added Question");
+        Question q3 = new Question("Test Added Question");
+        ArrayList<Question> surveyQs = new ArrayList<Question>();
+        surveyQs.add(q1);
+        surveyQs.add(q2);
+        surveyQs.add(q3);
+
+        // Create survey with questions
+        Survey s = controller.createSurvey("Example Survey", surveyQs);
+
+        // create the survey response
+        SurveyResponse response1 = controller.createNewSurveyResponse(4, 5, 2);
+        SurveyResponse response2 = controller.createNewSurveyResponse(3, 3, 4);
+        SurveyResponse response3 = controller.createNewSurveyResponse(3, 1, 4);
+
+        // Add response to the survey
+        controller.addSurveyResponse(s, response1);
+        controller.addSurveyResponse(s, response2);
+        controller.addSurveyResponse(s, response3);
+
+        // retrieve survey average
+        double average = controller.getQuestionAverage(s, 2);
+
+        assertEquals(average, 3);
+    }
+
 }
