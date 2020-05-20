@@ -5,4 +5,5 @@ This is a project test project in order to demonstrate the best practices we loo
 1. [**Sprint Planning**](SprintPlanning.md)
 2. [**Code Reviewing**](CodeReview.md)
 3. [**Test Driven Development**](TestDrivenDevelopment.md)
-4. [**Test Coverge**](TestCoverage.md)
+4. [**Team Version Control**](TeamVersionControl.md)
+5. [**Test Coverge**](TestCoverage.md)

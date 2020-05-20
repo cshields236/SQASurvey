@@ -26,3 +26,11 @@ Below I will give an outline of the branching used in this project
 - [**git-flow-doc**](https://github.com/cshields236/SQASurvey/tree/git-flow-doc): This branch contains this Git Flow documentation.
   
 
+## Notes
+- Once a feature is completed the branch is merged back into the develop branch
+- Once the complete feature is implemented the develop branch is merged back to master 
+- It is important to give branches descriptive titles
+- It is impotant to have meaningful git commit messages for other developers to understand what is going on 
+
+## Links
+- [Home](README.md)
