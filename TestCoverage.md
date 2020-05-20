@@ -11,7 +11,7 @@ Simply, click on the run button in the eclipse menu and a report will be generat
 Clicking the first butto analyses your project and generates a report based on the test coverage present. You will get percentages of coverage of the whole project and then a break down of each classes coverage. 
 
 
-![Image of Test Coverage Percentage](Images/testCoverage.png)
+![Image of Test Coverage Percentage](Images/testCoverage.PNG)
 
 ## What To Look For
 Here we can see that the coverage of code covered by tests in my application is 97.1%. This is a high enough percentage to be confident we are testing all the features of the project. There is no need, and in some cases imporababale, to strive for 100% test coverage. 
@@ -22,11 +22,11 @@ There is no need to write Unit Tests for low level tasks with no or minimal comp
 
 ## Classifications
 The EclEmma extenstion will highlight your code in differnt colours to illustrate the level of coverage. This is a very helpful tool as it allows you to easily identify untested code.
-![Image of method with Full Test Coverage ](Images/Green.png)
+![Image of method with Full Test Coverage ](Images/Green.PNG)
 - Here we see a method that is fully highlighted **green**, meaning that it is fully covered by testing. 
 
 
-![Image of method with Full Test Coverage ](Images/diff.png)
+![Image of method with Full Test Coverage ](Images/diff.PNG)
 Here we see the full array of coverage.
 - Lines which are highlighted in **yellow** are partially covered by tests but could have other conditions or scenarios which have not been tested.
 - Lines which are highlighted in **red** are not covered at all by testing.
