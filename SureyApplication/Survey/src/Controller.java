@@ -145,4 +145,17 @@ public class Controller {
         return average;
     }
 
+
+     // Get standard deviation of answers for a survey
+     public static double getQuestionStdDevSurvey(Survey survey, int question) {
+        double stdDev = 0;
+        if (survey.getSurveyResponses() != null) {
+            stdDev = survey.getQuestionStdDeviation(question);
+        } else {
+            stdDev = 0;
+        }
+        return stdDev;
+
+    }
+
 }

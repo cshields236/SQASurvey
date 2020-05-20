@@ -165,4 +165,26 @@ public class Survey {
         return average;
 
     }
+
+
+
+    public double getQuestionStdDeviation(int selectedQuestion) {
+
+        double stdDev = 0.0;
+        double mean = getQuestionAverage(selectedQuestion);
+        int total = 0;
+
+        for (SurveyResponse sResponse : this.surveyResponses) {
+
+            // Get a single response to the survey
+            for (int singleResponse : sResponse.getAnswers().values()) {
+                // update total number of questions
+                total++;
+                // Update the standard deviation value by taking the response away from the
+                // average and raising it by two
+                stdDev += Math.pow(sResponse.getAnswers().get(selectedQuestion) - mean, 2);
+            }
+        }
+        return Math.sqrt(stdDev / total);
+    }
 }
