@@ -109,4 +109,23 @@ public class Survey {
         }
         return Math.sqrt(stdDev/total);
     }
+
+
+    public Integer getMaximumAnswer(){
+        int highest = surveyResponses.get(0).getAnswers().get(1);
+
+        for (SurveyResponse sResponse : this.surveyResponses) {
+
+            // Get a single response to the survey
+            for (int singleResponse : sResponse.getAnswers().values()) {
+                // update  total number of questions
+                if (singleResponse > highest){
+                   highest = singleResponse ;
+                }
+            }
+        } 
+        return highest;
+
+        
+    }
 }

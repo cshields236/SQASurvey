@@ -109,4 +109,16 @@ public class Controller {
 
     }
 
+
+    public static Integer getHighestAnswer(Survey survey){
+        int highest = 0;
+        if (survey.getSurveyResponses() != null) {
+            highest = survey.getMaximumAnswer();
+        } else {
+            highest = 0;
+        }
+        return highest;
+
+    }
+
 }

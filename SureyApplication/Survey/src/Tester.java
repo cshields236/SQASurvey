@@ -242,8 +242,24 @@ public class Tester {
 
     @Test 
     public void TestSurveyMaximumAnswer(){
+        Question q1 = new Question("Test Added Question");
+        Question q2 = new Question("Test Added Question");
+        Question q3 = new Question("Test Added Question");
+        ArrayList<Question> surveyQs = new ArrayList<Question>();
+        surveyQs.add(q1);
+        surveyQs.add(q2);
+        surveyQs.add(q3);
 
-        assertEquals( 0,1);
+        // Create survey with questions
+        Survey s = controller.createSurvey("Example Survey", surveyQs);
+
+        // create the survey response
+        SurveyResponse response = controller.createNewSurveyResponse(3, 2, 4);
+
+        controller.addSurveyResponse(s, response);
+
+        int max = controller.getHighestAnswer(s);
+        assertEquals( max, 4);
     }
 
 }
