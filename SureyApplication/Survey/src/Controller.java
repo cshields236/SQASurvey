@@ -111,25 +111,25 @@ public class Controller {
 
 
     public static Integer getHighestAnswer(Survey survey){
-        int highest = 0;
+        int maximum = 0;
         if (survey.getSurveyResponses() != null) {
-            highest = survey.getMaximumAnswer();
+            maximum = survey.getMaximumAnswer();
         } else {
-            highest = 0;
+            maximum = 0;
         }
-        return highest;
+        return maximum;
 
     }
 
 
     public static Integer getLowestAnswer(Survey survey){
-        int lowest = 0;
+        int minimum = 0;
         if (survey.getSurveyResponses() != null) {
-            lowest = survey.getMinimumAnswer();
+            minimum = survey.getMinimumAnswer();
         } else {
-            lowest = 0;
+            minimum = 0;
         }
-        return lowest;
+        return minimum;
 
     }
 
