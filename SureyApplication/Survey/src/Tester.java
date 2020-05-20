@@ -234,9 +234,16 @@ public class Tester {
         controller.addSurveyResponse(s, response);
         controller.addSurveyResponse(s, response2);
 
-        // retrieve survey average
+        // retrieve survey standard deviation
         double std= controller.getStdDevSurvey(s);
         assertEquals(  std , 0.816496580927726);
+    }
+
+
+    @Test 
+    public void TestSurveyMaximumAnswer(){
+
+        assertEquals( 0,1);
     }
 
 }
