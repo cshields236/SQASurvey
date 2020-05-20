@@ -4,3 +4,4 @@ This is a project test project in order to demonstrate the best practices we loo
 ## Links to all sections covered in this project
 - [Sprint Planning](SprintPlanning.md)
 - [Code Reviewing](CodeReview.md)
+- [Test Coverge](TestCoverage.md)
