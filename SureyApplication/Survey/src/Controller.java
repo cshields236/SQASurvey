@@ -58,7 +58,7 @@ public class Controller {
         // Add the map with the users reponses to the survey response object
         surveyResponse.setAnswers(surveyAnswers);
         // Add the survey response to the survey
-    
+
         // return the survey response
         return surveyResponse;
 
@@ -87,17 +87,26 @@ public class Controller {
         return responses;
     }
 
-    public double getSurveyAverage(Survey survey){
+    public static double getSurveyAverage(Survey survey) {
         double average = 0;
-        if (survey.getSurveyResponses() !=null){
+        if (survey.getSurveyResponses() != null) {
             average = survey.getAverageResponse();
-        }
-        else{
+        } else {
             average = 0;
         }
-
         return average;
-        
+
+    }
+
+    public static double getStdDevSurvey(Survey survey) {
+        double stdDev = 0;
+        if (survey.getSurveyResponses() != null) {
+            stdDev = survey.getStdDeviation();
+        } else {
+            stdDev = 0;
+        }
+        return stdDev;
+
     }
 
 }
