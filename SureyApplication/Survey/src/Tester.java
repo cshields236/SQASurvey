@@ -284,4 +284,158 @@ public class Tester {
         assertEquals(min, 2);
     }
 
+
+
+    @Test
+    public void TestQuestionAverage() {
+        // Create Questions for survey
+
+        Question q1 = new Question("Test Added Question");
+        Question q2 = new Question("Test Added Question");
+        Question q3 = new Question("Test Added Question");
+        ArrayList<Question> surveyQs = new ArrayList<Question>();
+        surveyQs.add(q1);
+        surveyQs.add(q2);
+        surveyQs.add(q3);
+
+        // Create survey with questions
+        Survey s = controller.createSurvey("Example Survey", surveyQs);
+
+        // create the survey response
+        SurveyResponse response1 = controller.createNewSurveyResponse(4, 5, 2);
+        SurveyResponse response2 = controller.createNewSurveyResponse(3, 3, 4);
+        SurveyResponse response3 = controller.createNewSurveyResponse(3, 1, 4);
+
+        // Add response to the survey
+        controller.addSurveyResponse(s, response1);
+        controller.addSurveyResponse(s, response2);
+        controller.addSurveyResponse(s, response3);
+
+        // retrieve question average
+        double average = controller.getQuestionAverage(s, 2);
+
+        // Answer for question 2 should be 3
+        // as the three responses recorded 5,3,1 add up to 9 - 9/ 3 = 3
+        assertEquals(average, 3);
+    }
+
+    @Test
+    public void TestQuestionStandardDeviation() {
+        // Create Questions for survey
+
+        Question q1 = new Question("Test Added Question");
+        Question q2 = new Question("Test Added Question");
+        Question q3 = new Question("Test Added Question");
+        ArrayList<Question> surveyQs = new ArrayList<Question>();
+        surveyQs.add(q1);
+        surveyQs.add(q2);
+        surveyQs.add(q3);
+
+        // Create survey with questions
+        Survey s = controller.createSurvey("Example Survey", surveyQs);
+
+        // create the survey response
+        SurveyResponse response1 = controller.createNewSurveyResponse(4, 5, 2);
+        SurveyResponse response2 = controller.createNewSurveyResponse(3, 3, 4);
+        SurveyResponse response3 = controller.createNewSurveyResponse(3, 1, 4);
+        SurveyResponse response4 = controller.createNewSurveyResponse(3, 2, 4);
+        SurveyResponse response5 = controller.createNewSurveyResponse(3, 3, 4);
+        SurveyResponse response6 = controller.createNewSurveyResponse(3, 4, 4);
+
+        // Add response to the survey
+        controller.addSurveyResponse(s, response1);
+        controller.addSurveyResponse(s, response2);
+        controller.addSurveyResponse(s, response3);
+        controller.addSurveyResponse(s, response4);
+        controller.addSurveyResponse(s, response5);
+        controller.addSurveyResponse(s, response6);
+
+        // retrieve question standard deviation
+        double stdDev = controller.getQuestionStdDevSurvey(s, 2);
+
+        // Answer for question 2 should be 1.2909944487358056
+        // as the responses recorded are 5,3,1,2,3,4 
+        assertEquals(stdDev, 1.2909944487358056);
+    }
+
+    @Test
+    public void TestQuestionMaximumAnswer() {
+         // Create Questions for survey
+
+         Question q1 = new Question("Test Added Question");
+         Question q2 = new Question("Test Added Question");
+         Question q3 = new Question("Test Added Question");
+         ArrayList<Question> surveyQs = new ArrayList<Question>();
+         surveyQs.add(q1);
+         surveyQs.add(q2);
+         surveyQs.add(q3);
+ 
+         // Create survey with questions
+         Survey s = controller.createSurvey("Example Survey", surveyQs);
+ 
+         // create the survey response
+         SurveyResponse response1 = controller.createNewSurveyResponse(4, 4, 2);
+         SurveyResponse response2 = controller.createNewSurveyResponse(3, 3, 4);
+         SurveyResponse response3 = controller.createNewSurveyResponse(3, 1, 4);
+         SurveyResponse response4 = controller.createNewSurveyResponse(3, 2, 4);
+         SurveyResponse response5 = controller.createNewSurveyResponse(3, 5, 4);
+         SurveyResponse response6 = controller.createNewSurveyResponse(3, 4, 4);
+ 
+         // Add response to the survey
+         controller.addSurveyResponse(s, response1);
+         controller.addSurveyResponse(s, response2);
+         controller.addSurveyResponse(s, response3);
+         controller.addSurveyResponse(s, response4);
+         controller.addSurveyResponse(s, response5);
+         controller.addSurveyResponse(s, response6);
+ 
+         // retrieve question standard deviation
+         double maximum = controller.getQuestionMaximum(s, 2);
+ 
+         // Answer for question 2 should be 1.2909944487358056
+         // as the responses recorded are 5,3,1,2,3,4 
+         assertEquals(maximum, 5);
+    }
+
+
+    @Test
+    public void TestQuestionMinimumAnswer() {
+        // Create Questions for survey
+
+        Question q1 = new Question("Test Added Question");
+        Question q2 = new Question("Test Added Question");
+        Question q3 = new Question("Test Added Question");
+        ArrayList<Question> surveyQs = new ArrayList<Question>();
+        surveyQs.add(q1);
+        surveyQs.add(q2);
+        surveyQs.add(q3);
+
+        // Create survey with questions
+        Survey s = controller.createSurvey("Example Survey", surveyQs);
+
+        // create the survey response
+        SurveyResponse response1 = controller.createNewSurveyResponse(4, 5, 2);
+        SurveyResponse response2 = controller.createNewSurveyResponse(3, 3, 4);
+        SurveyResponse response3 = controller.createNewSurveyResponse(3, 1, 4);
+        SurveyResponse response4 = controller.createNewSurveyResponse(3, 2, 4);
+        SurveyResponse response5 = controller.createNewSurveyResponse(3, 3, 4);
+        SurveyResponse response6 = controller.createNewSurveyResponse(3, 4, 4);
+
+        // Add response to the survey
+        controller.addSurveyResponse(s, response1);
+        controller.addSurveyResponse(s, response2);
+        controller.addSurveyResponse(s, response3);
+        controller.addSurveyResponse(s, response4);
+        controller.addSurveyResponse(s, response5);
+        controller.addSurveyResponse(s, response6);
+
+        // retrieve question standard deviation
+        double stdDev = controller.getQuestionMinimum(s, 2);
+
+        // Answer for question 2 should be 1.2909944487358056
+        // as the responses recorded are 5,3,1,2,3,4 
+        assertEquals(stdDev, 1);
+   }
+
+
 }

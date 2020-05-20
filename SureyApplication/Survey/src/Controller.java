@@ -87,6 +87,7 @@ public class Controller {
         return responses;
     }
 
+    // Get average answer for a survey
     public static double getSurveyAverage(Survey survey) {
         double average = 0;
         if (survey.getSurveyResponses() != null) {
@@ -95,9 +96,9 @@ public class Controller {
             average = 0;
         }
         return average;
-
     }
 
+    // Get standard deviation of answers for a survey
     public static double getStdDevSurvey(Survey survey) {
         double stdDev = 0;
         if (survey.getSurveyResponses() != null) {
@@ -109,8 +110,8 @@ public class Controller {
 
     }
 
-
-    public static Integer getHighestAnswer(Survey survey){
+    // Get highest answer from a survey
+    public static Integer getHighestAnswer(Survey survey) {
         int maximum = 0;
         if (survey.getSurveyResponses() != null) {
             maximum = survey.getMaximumAnswer();
@@ -121,11 +122,60 @@ public class Controller {
 
     }
 
-
-    public static Integer getLowestAnswer(Survey survey){
+    // Get lowest answer from a survey
+    public static Integer getLowestAnswer(Survey survey) {
         int minimum = 0;
         if (survey.getSurveyResponses() != null) {
             minimum = survey.getMinimumAnswer();
+        } else {
+            minimum = 0;
+        }
+        return minimum;
+
+    }
+
+     // Get average answer for a question 
+     public static double getQuestionAverage(Survey survey, int question) {
+        double average = 0;
+        if (survey.getSurveyResponses() != null) {
+            average = survey.getQuestionAverage(question);
+        } else {
+            average = 0;
+        }
+        return average;
+    }
+
+
+     // Get standard deviation of answers for a survey
+     public static double getQuestionStdDevSurvey(Survey survey, int question) {
+        double stdDev = 0;
+        if (survey.getSurveyResponses() != null) {
+            stdDev = survey.getQuestionStdDeviation(question);
+        } else {
+            stdDev = 0;
+        }
+        return stdDev;
+
+    }
+
+     // Get maximum answer for specific question
+     public static Integer getQuestionMaximum(Survey survey, int question) {
+        int maximum = 0;
+        if (survey.getSurveyResponses() != null) {
+            maximum = survey.getQuestionMaximumAnswerSpecific(question);
+        } else {
+            maximum = 0;
+        }
+        return maximum;
+
+    }
+
+
+      // Get maximum answer for specific question
+      public static Integer getQuestionMinimum(Survey survey, int question) {
+        int minimum = 0;
+        if (survey.getSurveyResponses() != null) {
+            minimum = survey.getQuestionMinimumAnswerSpecific(question);
         } else {
             minimum = 0;
         }

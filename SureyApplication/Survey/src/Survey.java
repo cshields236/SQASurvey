@@ -68,6 +68,10 @@ public class Survey {
         this.surveyResponses = surveyResponses;
     }
 
+    /*
+     * Survey calculations
+     */
+
     // Method to get the average response for a survey
     public double getAverageResponse() {
         // Initialise values for calculation of average
@@ -92,7 +96,7 @@ public class Survey {
     }
 
     public double getStdDeviation() {
-      
+
         double stdDev = 0.0;
         double mean = getAverageResponse();
         int total = 0;
@@ -101,17 +105,17 @@ public class Survey {
 
             // Get a single response to the survey
             for (int singleResponse : sResponse.getAnswers().values()) {
-                // update  total number of questions
+                // update total number of questions
                 total++;
-                // Update the standard deviation value by taking the response away from the average and raising it by two
+                // Update the standard deviation value by taking the response away from the
+                // average and raising it by two
                 stdDev += Math.pow(singleResponse - mean, 2);
             }
         }
-        return Math.sqrt(stdDev/total);
+        return Math.sqrt(stdDev / total);
     }
 
-
-    public Integer getMaximumAnswer(){
+    public Integer getMaximumAnswer() {
         // Initially sets the maximum value to the first answer
         int highest = surveyResponses.get(0).getAnswers().get(1);
 
@@ -119,20 +123,18 @@ public class Survey {
 
             // Get a single response to the survey
             for (int singleResponse : sResponse.getAnswers().values()) {
-               // Checks to see if the current answer is larger than the largest
-                if (singleResponse > highest){
+                // Checks to see if the current answer is larger than the largest
+                if (singleResponse > highest) {
                     // if it is, updates the largest value
-                   highest = singleResponse ;
+                    highest = singleResponse;
                 }
             }
-        } 
+        }
         return highest;
 
-        
     }
 
-
-    public Integer getMinimumAnswer(){
+    public Integer getMinimumAnswer() {
         // Initially sets the maximum value to the first answer
         int lowest = surveyResponses.get(0).getAnswers().get(1);
 
@@ -140,15 +142,92 @@ public class Survey {
 
             // Get a single response to the survey
             for (int singleResponse : sResponse.getAnswers().values()) {
-               // Checks to see if the current answer is larger than the largest
-                if (singleResponse < lowest){
+                // Checks to see if the current answer is larger than the largest
+                if (singleResponse < lowest) {
                     // if it is, updates the lowest value
-                    lowest = singleResponse ;
+                    lowest = singleResponse;
                 }
             }
-        } 
+        }
         return lowest;
+    }
 
-        
+    /*
+     * Specific Question calculations
+     */
+    public double getQuestionAverage(int selectedQuestion) {
+        // Initialise values for calculation of average
+        int total = 0;
+        int totalResponses = 0;
+        double average = 0;
+        // Get all responses to the survey
+        for (SurveyResponse sResponse : this.surveyResponses) {
+            totalResponses++;
+            // get the answer for the specific question
+            total += sResponse.getAnswers().get(selectedQuestion);
+
+        }
+        // calculate average
+        average = (double) total / (double) totalResponses;
+        return average;
+
+    }
+
+    public double getQuestionStdDeviation(int selectedQuestion) {
+
+        double stdDev = 0.0;
+        double mean = getQuestionAverage(selectedQuestion);
+        int total = 0;
+
+        for (SurveyResponse sResponse : this.surveyResponses) {
+
+            // Get a single response to the survey
+            for (int singleResponse : sResponse.getAnswers().values()) {
+                // update total number of questions
+                total++;
+                // Update the standard deviation value by taking the response away from the
+                // average and raising it by two
+                stdDev += Math.pow(sResponse.getAnswers().get(selectedQuestion) - mean, 2);
+            }
+        }
+        return Math.sqrt(stdDev / total);
+    }
+
+    public Integer getQuestionMaximumAnswerSpecific(int selectedQuestion) {
+        // Initially sets the maximum value to the first answer
+        // Initialise values for calculation of average
+        int maximum = 0;
+
+        // Get all responses to the survey
+        for (SurveyResponse sResponse : this.surveyResponses) {
+            // get the answer for the specific question
+            if (maximum < sResponse.getAnswers().get(selectedQuestion)) {
+                maximum = sResponse.getAnswers().get(selectedQuestion);
+            }
+
+        }
+        // Return maximum answer
+        return maximum;
+
+    }
+
+    public Integer getQuestionMinimumAnswerSpecific(int selectedQuestion) {
+        // Initially sets the minimum value to the first answer
+        // Initialise values for calculation of average
+        int minimum = this.surveyResponses.get(0).getAnswers().get(selectedQuestion);
+
+        // Get all responses to the survey
+        for (SurveyResponse sResponse : this.surveyResponses) {
+            // get the answer for the specific question
+            // Check if the current value is less than the current minimum value
+            if (minimum > sResponse.getAnswers().get(selectedQuestion)) {
+                // if it is set the current value to the new minimum value 
+                minimum = sResponse.getAnswers().get(selectedQuestion);
+            }
+
+        }
+        // Return minimum answer
+        return minimum;
+
     }
 }
